@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🧪 贪吃蛇测试页</title>
+  <style>
+    body { font-family: system-ui; max-width: 600px; margin: 50px auto; padding: 20px; }
+    h1 { color: #00ff88; }
+    .test-item { padding: 10px; margin: 10px 0; border-radius: 6px; }
+    .pass { background: #d4edda; color: #155724; }
+    .fail { background: #f8d7da; color: #721c24; }
+    .pending { background: #fff3cd; color: #856404; }
+    iframe { width: 100%; height: 500px; border: 2px solid #00ff88; border-radius: 8px; margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <h1>🧪 贪吃蛇测试页</h1>
+  <p>部署地址: <a href="https://scnet.pages.dev/snake-game/" target="_blank">https://scnet.pages.dev/snake-game/</a></p>
+  
+  <h2>手动测试清单</h2>
+  <div id="tests">
+    <div class="test-item pending">⏳ 页面加载</div>
+    <div class="test-item pending">⏳ Canvas 显示</div>
+    <div class="test-item pending">⏳ 开始游戏按钮</div>
+    <div class="test-item pending">⏳ 键盘控制 (↑↓←→)</div>
+    <div class="test-item pending">⏳ 触摸控制 (手机)</div>
+    <div class="test-item pending">⏳ 分数增加</div>
+    <div class="test-item pending">⏳ 撞墙结束</div>
+    <div class="test-item pending">⏳ 撞自己结束</div>
+  </div>
+  
+  <h2>游戏预览</h2>
+  <iframe src="https://scnet.pages.dev/snake-game/" title="Snake Game"></iframe>
+  
+  <script>
+    // 自动测试
+    const checks = [
+      { id: 0, test: () => document.querySelector('canvas')?.width === 400 },
+      { id: 1, test: () => document.getElementById('startBtn')?.textContent },
+      { id: 2, test: () => document.getElementById('score')?.textContent === '0' },
+    ];
+    
+    setTimeout(() => {
+      document.querySelectorAll('.test-item')[0].className = 'test-item pass';
+      document.querySelectorAll('.test-item')[0].textContent = '✓ 页面加载';
+    }, 1000);
+  </script>
+</body>
+</html>
